@@ -23,4 +23,8 @@ class Article extends Model
     public function setPublishAtAttribute($date) {
         $this->attributes['published_at'] = Carbon::parse($date);
     }
+
+    public function user() {
+    return $this->belongsTo('App\User');
+    }
 }
