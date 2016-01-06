@@ -5,7 +5,7 @@
 
     <hr/>
 
-    {!! Form::open([url => 'articles'])
+    {!! Form::open($article,['method' => 'PATCH', 'action' => ['ArticlesController@update, $article->id]])
      !!}
     <div class="form-group">
     {!! Form::text('title', null, ['class' => 'form-control']) !!}
@@ -25,12 +25,5 @@
     </div>
     {!! Form::close() !!}
 
-    @if ($errors)->any())
-        <ul class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-        </ul>
-
-    @endif
+@include ('errors/list')
 @stop
