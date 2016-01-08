@@ -33,9 +33,9 @@ class ArticlesController extends Controller
 
     public function store(ArticleRequest $request)
     {
-        $article = new Article($request->all());
-        Auth::user()->articles()->save($article);
-        Article::create($request->all());
+
+        Auth::user()->articles()->create($request->all());
+        \Session::flash('flash_message', 'Your article has been created.');
         return redirect('articles');
     }
 
